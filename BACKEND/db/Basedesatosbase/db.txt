@@ -1,0 +1,56 @@
+-- Creamos la base de datos.
+CREATE DATABASE IF NOT EXISTS newsdb;
+
+-- Seleccionamos la base de datos.
+USE newsdb;
+
+-- Borramos las tablas en el orden inverso al cuál han sido creadas.
+DROP DATABASE IF EXISTS likes, news, themes, users;
+
+-- Creamos la tabla de usuarios.
+CREATE TABLE IF NOT EXISTS users (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(45) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR(200) NOT NULL,
+  biography VARCHAR(100) DEFAULT NULL,
+  avatar VARCHAR(100) DEFAULT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+);
+
+-- Creamos la tabla de temas.
+CREATE TABLE IF NOT EXISTS themes (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(45) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Creamos la tabla de noticias.
+CREATE TABLE IF NOT EXISTS news (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  pic VARCHAR(100) DEFAULT NULL,
+  entrance VARCHAR(100) DEFAULT NULL,
+  text VARCHAR(1000) NOT NULL,
+  video VARCHAR(100) DEFAULT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  modified_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+  user_id INT UNSIGNED NOT NULL,
+  theme_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (theme_id) REFERENCES themes (id)
+);
+
+-- Creamos la tabla de likes.
+CREATE TABLE IF NOT EXISTS likes (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  new_id INT UNSIGNED NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (new_id) REFERENCES news (id)
+);
+
+-- Insertamos los temas.
+INSERT INTO themes VALUES (1,'celebrities'),(6,'festivals'),(3,'oscars_2024'),(2,'premieres'),(5,'ranking'),(4,'reviews');

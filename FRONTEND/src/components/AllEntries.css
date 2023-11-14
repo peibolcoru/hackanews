@@ -1,0 +1,16 @@
+.no-news{
+    display: flex;
+    justify-content: center;
+    
+    width: 1000px;
+    height: 745px;
+    
+}
+
+.mapeo-array{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}

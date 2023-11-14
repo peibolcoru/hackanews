@@ -1,0 +1,83 @@
+.entry {
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 400px;
+    width: 200px;
+    --bs-card-bg: #484444;
+    position: relative;
+    --bs-card-border-color: #c1c1c1;
+    -webkit-box-shadow: 9px 13px 19px -1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 9px 13px 19px -1px rgba(0, 0, 0, 1);
+    box-shadow: 9px 13px 19px -1px rgba(0, 0, 0, 1);
+}
+.likes-non {
+    border: solid #545454 1px;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-left: 35px;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 1);
+    box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 1);
+}
+
+.btn_to_new {
+    margin-left: 70px;
+    border: 1px solid white;
+}
+
+.btn_to_new:hover {
+    background-color: rgba(2, 129, 154, 0.8);
+    border: 1px solid #c1c1c1;
+    transform: translateY(-3px);
+}
+
+.linea {
+    width: 250px;
+}
+.title {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+.text_card1 {
+    color: white;
+    font-weight: lighter;
+    height: 60px;
+}
+.imgCard1 {
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.container-img-entry {
+    height: 220px;
+    width: 18rem;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+}
+
+.btn_like {
+    position: absolute;
+    margin-left: 195px;
+    margin-top: 180px;
+}
+
+.link_to_new {
+    position: absolute;
+    margin-top: 350px;
+    margin-left: 20px;
+}

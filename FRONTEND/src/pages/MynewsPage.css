@@ -1,0 +1,11 @@
+a.button-page {
+    margin: 1rem;
+}
+.rating-button:hover {
+    color: lightgrey;
+}
+.section-my-news {
+    margin-bottom: 100px;
+    width: 1000px;
+}
+

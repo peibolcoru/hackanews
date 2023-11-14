@@ -1,0 +1,25 @@
+section {
+    margin-top: 11px;
+}
+.line-HP {
+    width: 930px;
+    color: white;
+}
+
+.rating-button:hover {
+    color: lightgrey;
+}
+
+section {
+    margin-bottom: 25px;
+}
+.text-color {
+    color: white;
+}
+
+.button-page-right {
+    margin-left: 800px;
+}
+.section-rating {
+    margin-bottom: 100px;
+}

@@ -1,0 +1,75 @@
+.fullEntry{
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 650px;
+    position: relative;
+    
+}
+.title-entry-full{
+    font-size: 30px;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}	
+
+.principal{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid #484444; */
+    border-radius: 10px;
+    
+}
+.pic-full-entry{
+    max-width: 400px;
+    height: 230px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    border: 2px solid #484444;
+    border-radius: 10px;
+
+}
+.video_entry{
+    position: absolute;
+    margin-top: 330px;
+    margin-right: 290px;
+}
+.columna1{
+    margin: 0.5rem;
+    width: 400px;
+}
+.columna2{
+    width: 600px;
+    
+}
+.mapeo-full-entry{
+    margin-bottom: 100px;
+    
+}
+
+.btn_full_entry{
+    text-decoration: none;
+    -webkit-box-shadow: 9px 13px 19px -1px rgba(0,0,0,1);
+    -moz-box-shadow: 9px 13px 19px -1px rgba(0,0,0,1);
+    box-shadow: 9px 13px 19px -1px rgba(0,0,0,1);
+    border: 1px solid white;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: white
+}
+.btn_like_full_entry{
+    position: absolute;
+    margin-top: 275px;
+    margin-right: 900px;
+}
+.btn_edit_delete_entryFull{
+    position: absolute;
+    margin-top: 580px;
+    margin-right: 800px;
+}
+.theme, .author, .date, .entrance, .text{
+    color: white;
+}

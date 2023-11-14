@@ -1,0 +1,23 @@
+.img_carousel {
+    height: 510px;
+    width: 900px;
+}
+.carousel {
+    max-width: 900px;
+    max-height: 514px;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+
+    backface-visibility: hidden;
+}
+.carousel-control-next-icon {
+    display: none;
+}
+.carousel-control-prev-icon {
+    display: none;
+}
+.carousel-completo {
+    -webkit-box-shadow: 9px 13px 19px -1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 9px 13px 19px -1px rgba(0, 0, 0, 1);
+    box-shadow: 9px 13px 19px -1px rgba(0, 0, 0, 1);
+}

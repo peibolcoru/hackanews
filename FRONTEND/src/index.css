@@ -1,0 +1,25 @@
+:root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3a3a3a;
+    background-size: cover;
+}
+* {
+    font-family: 'Quicksand', sans-serif;
+    --toastify-text-color-dark: #0b0a0a;
+}
+
+body {
+    color: rgb(255, 255, 255);
+}
+.aside-main {
+    display: flex;
+    flex-direction: row;
+    background-color: #3a3a3a;
+}
+main {
+    margin-left: 270px;
+    min-height: 75vh;
+    margin-bottom: -50px;
+}
