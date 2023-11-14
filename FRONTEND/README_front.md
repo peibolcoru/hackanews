@@ -1,6 +1,6 @@
 # Proyecto Final - Hack A Boss - jsb24rt
 ![Hack A News - Logo](https://cdn.discordapp.com/attachments/1149313472115511321/1153978504132698122/Captura_de_pantalla_2023-09-11_163924.png?ex=651bd7bb&is=651a863b&hm=9a093f481bedb6400a7f06e07f77b4a717e67bb22be43ddedb39286096afdd20&)
-# HACK A NEWS - FRONTED
+# HACK A NEWS - FRONTEND
 
 
 ## Autors
