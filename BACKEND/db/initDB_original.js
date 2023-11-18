@@ -1,27 +1,44 @@
-
+const mysql = require('mysql2/promise');
 const sendQuery = require('./connectToDB');
 
 require('dotenv').config();
 
+let pool;
+const getConnection = async () => {
+    if (!pool) {
+        pool = mysql.createPool({
+            host: process.env.MYSQL_HOST,
+            user: process.env.MYSQL_USER,
+            password: process.env.MYSQL_PASSWORD,
+            database: process.env.MYSQL_DATABASE,
+            timezone: 'local',
+            connectionLimit: 10,
+        });
+    }
+    return await pool.getConnection();
+};
+
 async function main () {
+    let connection;
 
     try {
+        connection = await getConnection();
 
-        await sendQuery('DROP TABLE IF EXISTS likes');
-        await sendQuery('DROP TABLE IF EXISTS news');
-        await sendQuery('DROP TABLE IF EXISTS themes');
-        await sendQuery('DROP TABLE IF EXISTS users');
+        await connection.query('DROP TABLE IF EXISTS likes');
+        await connection.query('DROP TABLE IF EXISTS news');
+        await connection.query('DROP TABLE IF EXISTS themes');
+        await connection.query('DROP TABLE IF EXISTS users');
 
-        await sendQuery(`
+        await connection.query(`
 
           CREATE TABLE themes (
             themes_id int NOT NULL AUTO_INCREMENT,
             theme_name varchar(45) NOT NULL,
             PRIMARY KEY (themes_id),
             UNIQUE KEY theme_name_UNIQUE (theme_name)
-          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+          ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 `);
-        await sendQuery(`
+        await connection.query(`
 
           CREATE TABLE users (
             user_id int unsigned NOT NULL AUTO_INCREMENT,
@@ -39,7 +56,7 @@ async function main () {
           ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
           `);
 
-        await sendQuery(`
+        await connection.query(`
 
           CREATE TABLE news (
             id int unsigned NOT NULL AUTO_INCREMENT,
@@ -62,7 +79,7 @@ async function main () {
           ) ENGINE=InnoDB AUTO_INCREMENT=385 DEFAULT CHARSET=utf8mb3;
 `);
 
-        await sendQuery(`
+        await connection.query(`
 CREATE TABLE likes (
   id INT NOT NULL AUTO_INCREMENT,
   new_id INT UNSIGNED NOT NULL,
@@ -74,13 +91,10 @@ CREATE TABLE likes (
   CONSTRAINT fk_user_likes FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE ON UPDATE CASCADE
   ) ENGINE=InnoDB AUTO_INCREMENT=261 DEFAULT CHARSET=utf8mb3;
 `);
-
-  await sendQuery(`
-  INSERT INTO themes (theme_name) VALUES ('Celebrities'),('Festivales'),('Oscars 2024'),('Otros'),('Premieres'),('Reviews')`);
-
     } catch (error) {
         console.log(error);
     } finally {
+        if (connection) connection.release();
         process.exit();
     }
 }
